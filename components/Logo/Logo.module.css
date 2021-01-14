@@ -2,11 +2,20 @@
   height: 100%;
 }
 
-.Logo img {
-  height: 100%;
-  width: auto;
+.StickyLogo {
+  width: 78px;
 }
 
-.Logo a:link, .Logo a:visited {
+.UnstickyLogo {
+  width: 156px;
+}
+
+.Logo img {
+  height: auto;
+  width: 100%;
+}
+
+.Logo a:link,
+.Logo a:visited {
   border-bottom: none;
 }

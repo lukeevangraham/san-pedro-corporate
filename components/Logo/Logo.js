@@ -2,8 +2,10 @@ import React from "react";
 import classes from "./Logo.module.css";
 import Link from "next/link";
 
-const Logo = (props) => (
-  <div className={classes.Logo}>
+const Logo = (props) => {
+  let attachedClasses = [classes.Logo, props.sticky ? classes.StickyLogo : classes.UnstickyLogo ]
+  return (
+  <div className={attachedClasses.join(" ")}>
     <Link href="/">
       <a>
         <img
@@ -13,6 +15,6 @@ const Logo = (props) => (
       </a>
     </Link>
   </div>
-);
+)}
 
 export default Logo;

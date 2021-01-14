@@ -11,7 +11,7 @@ const Toolbar = (props) => {
     <header className={props.sticky ? classes.Sticky : classes.Toolbar}>
       <div className={attachedClasses.join(" ")}>
         <div className={classes.Logo}>
-          <Logo />
+          <Logo sticky={props.sticky} />
         </div>
         <DrawerToggle
           sticky={props.sticky}
