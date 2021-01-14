@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ionic/react": "^5.5.2",
     "next": "10.0.5",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-waypoint": "^9.0.3"
   }
 }
