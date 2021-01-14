@@ -11,7 +11,7 @@
   background-attachment: fixed;
 }
 
-@media (maxwidth: 767) {
+@media (max-width: 767px) {
   .homeHeader {
     background-attachment: scroll;
   }
