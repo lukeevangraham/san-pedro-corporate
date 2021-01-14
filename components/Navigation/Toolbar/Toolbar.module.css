@@ -10,7 +10,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .Sticky {
@@ -21,13 +21,19 @@
   padding: 0 20px;
   background-color: rgba(255, 255, 255, 0.973);
   box-shadow: 0 2px 2px rgb(rgb(230, 230, 230), green, blue);
-  z-index: 199;
+  z-index: 99;
   height: 60px;
   animation: moveDown 0.5s ease-in-out;;
 }
 
+.Sticky .Logo {
+  height: 50px;
+  margin-top: 0;
+}
+
 .Logo {
-  height: 80%;
+  margin-top: 20px;
+  height: 100px;
   flex-grow: 1;
 }
 

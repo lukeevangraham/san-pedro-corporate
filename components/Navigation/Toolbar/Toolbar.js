@@ -10,13 +10,13 @@ const Toolbar = (props) => {
   return (
     <header className={props.sticky ? classes.Sticky : classes.Toolbar}>
       <div className={attachedClasses.join(" ")}>
-        {/* <DrawerToggle
-          sticky={props.sticky}
-          clicked={props.drawerToggleClicked}
-        /> */}
         <div className={classes.Logo}>
           <Logo />
         </div>
+        <DrawerToggle
+          sticky={props.sticky}
+          clicked={props.drawerToggleClicked}
+        />
         <nav className={classes.DesktopOnly}>
           <NavigationItems sticky={props.sticky} />
         </nav>
