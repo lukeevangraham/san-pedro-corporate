@@ -1,18 +1,39 @@
-import Head from 'next/head'
-import Layout from "../hoc/Layout/Layout"
-import HomePage from "../components/HomePage/HomePage"
+import Head from "next/head";
+import { DefaultSeo } from "next-seo";
+import Layout from "../hoc/Layout/Layout";
+import HomePage from "../components/HomePage/HomePage";
+import { getStrapiMedia } from "../lib/media";
 
 // import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home(props) {
+  const { metadata } = props.global;
+  console.log("PROPS: ", metadata);
   return (
     <div>
       <Head>
-        <title>San Pedro Presbyterian Church</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={getStrapiMedia(props.global.favicon.url)} />
       </Head>
+      <DefaultSeo
+        titleTemplate={`%s | ${props.global.metaTitleSuffix}`}
+        title={"Page"}
+        discription={metadata.metaDescription}
+        openGraph={{
+          images: Object.values(metadata.shareImage.formats).map((image) => {
+            return {
+              url: getStrapiMedia(image.url),
+              width: image.width,
+              height: image.height,
+            };
+          }),
+        }}
+        twitter={{
+          cardType: metadata.twitterCardType,
+          handle: metadata.twitterUsername,
+        }}
+      />
 
-      <Layout home>
+      <Layout home global={props.global}>
         <HomePage />
       </Layout>
 
@@ -68,5 +89,5 @@ export default function Home() {
         </a>
       </footer> */}
     </div>
-  )
+  );
 }
