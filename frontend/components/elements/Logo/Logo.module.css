@@ -1,0 +1,22 @@
+.Logo {
+    height: 100%;
+  }
+  
+  .StickyLogo {
+    width: 78px;
+  }
+  
+  .UnstickyLogo {
+    width: 156px;
+  }
+  
+  .Logo img {
+    height: auto;
+    width: 100%;
+  }
+  
+  .Logo a:link,
+  .Logo a:visited {
+    border-bottom: none;
+  }
+  

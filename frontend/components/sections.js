@@ -56,17 +56,35 @@ const PreviewModeBanner = () => {
 
 // Display the list of sections
 const Sections = ({ sections, preview }) => {
+  console.log("Sections: ", sections);
   return (
     <div className="flex flex-col">
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
-      {sections.map((section) => (
+      {/* DONT SHOW THE HERO SECTION IF IT'S FIRST (SINCE THE LAYOUT RENDERS IT ALREADY ) */}
+      {sections.length > 1 && sections[0].__component === "sections.hero"
+        ? sections
+            .filter((section, index) => index !== 0)
+            .map((section) => (
+              <Section
+                sectionData={section}
+                key={`${section.__component}${section.id}`}
+              />
+            ))
+        : sections.map((section) => (
+            <Section
+              sectionData={section}
+              key={`${section.__component}${section.id}`}
+            />
+          ))}
+          {/* THE ORIGINAL CODE IS BELOW */}
+      {/* {sections.map((section) => (
         <Section
           sectionData={section}
           key={`${section.__component}${section.id}`}
         />
-      ))}
+      ))} */}
     </div>
   );
 };

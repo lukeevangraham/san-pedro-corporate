@@ -1,0 +1,33 @@
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btnGhost {
+    border: 1px solid #90291D;
+    color: #90291D;
+}
+
+.btn:hover, .btn:active {
+    background-color: #5C1A12;
+}
+
+.btn-full:hover, .btn-full:active {
+    border: 1px solid #cf6d17;
+}
+
+.btnGhost:hover, .btnGhost:active {
+    border: 1px solid #5C1A12;
+    color: #fff;
+}

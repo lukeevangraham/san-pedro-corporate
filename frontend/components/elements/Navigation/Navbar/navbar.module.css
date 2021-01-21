@@ -1,0 +1,17 @@
+.Toolbar {
+  padding: 0 20px;
+  height: 120px;
+  width: 100%;
+}
+
+.innerToolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Logo {
+  margin-top: 20px;
+  flex-grow: 1;
+}
+

@@ -7,8 +7,10 @@ import { getStrapiMedia } from "utils/media";
 import { getStrapiURL, getGlobalData } from "utils/api";
 import Layout from "@/components/layout";
 import "@/styles/index.css";
+import "@/styles/grid.css";
 
 const MyApp = ({ Component, pageProps }) => {
+
   // Prevent Next bug when it tries to render the [[...slug]] route
   const router = useRouter();
   if (router.asPath === "/[[...slug]]") {
@@ -27,6 +29,11 @@ const MyApp = ({ Component, pageProps }) => {
       {/* Favicon */}
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon.url)} />
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       {/* Global site metadata */}
       <DefaultSeo
