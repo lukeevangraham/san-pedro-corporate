@@ -18,20 +18,18 @@ import { getButtonAppearance } from "utils/button";
 import CustomLink from "../../custom-link";
 import classes from "./navbar.module.css";
 
-const Navbar = ({ navbar }) => {
+const Navbar = ({ navbar, sticky }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
   let attachedClasses = [classes.innerToolbar, "row"];
   const router = useRouter()
 
-  // console.log("PAGEPROPS: ", pageProps)
-
   return (
     <>
       {/* The actual navbar */}
-      <nav className={classes.Toolbar}>
+      <nav className={sticky ? classes.Sticky : classes.Toolbar}>
         <div className={attachedClasses.join(" ")}>
           <div className={classes.Logo}>
-            <Logo image={navbar.logo} />
+            <Logo image={navbar.logo} sticky={sticky} />
             {/* <Link href="/[[...slug]]" as="/">
               <a>
                 <Image
@@ -42,7 +40,7 @@ const Navbar = ({ navbar }) => {
             </Link> */}
           </div>
           {/* List of links on desktop */}
-          <NavigationItems links={navbar.links} />
+          <NavigationItems links={navbar.links} sticky={sticky} />
           {/* <ul
             className={[classes.DesktopOnly, classes.NavigationItems].join(" ")}
           >

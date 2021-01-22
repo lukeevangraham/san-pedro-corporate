@@ -25,7 +25,7 @@
   .NavigationItem a:link,
   .NavigationItem a:visited {
     padding: 8px 0;
-    color: #90291d;
+    color: #fff;
     text-decoration: none;
     font-size: 90%;
     border-bottom: 2px solid transparent;
@@ -34,7 +34,8 @@
 
   .sticky a:link,
   .sticky a:visited {
-    color: #555;
+    padding: 35px 0;
+    color: #90291d;
   }
 
   .NavigationItem a:hover,

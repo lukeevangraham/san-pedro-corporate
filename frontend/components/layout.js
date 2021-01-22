@@ -1,4 +1,5 @@
 import React, { cloneElement, isValidElement } from "react";
+import { Waypoint } from "react-waypoint";
 import Link from "next/link";
 import ButtonLink from "./elements/button-link";
 import HomeHeader from "../components/elements/HomeHeader/HomeHeader";
@@ -11,11 +12,8 @@ import Sections from "../components/sections";
 const Layout = ({ children, global }) => {
   const { navbar, footer, notificationBanner } = global;
 
+  const [makeNavSticky, setMakeNavSticky] = useState(false);
   const [bannerIsShown, setBannerIsShown] = useState(true);
-
-  let heroChild = global.Hero;
-
-  heroChild.__component = "sections.hero";
 
   return (
     <div className="flex flex-col justify-between min-h-screen">
@@ -28,18 +26,26 @@ const Layout = ({ children, global }) => {
           />
         )}
 
-        {/* If home, show the contained Navbar and Hero */}
-        {children.props.metadata.id === 2 ? (
-          <HomeHeader>
-            <Navbar navbar={navbar} />
-            {/* SHOW ONLY THE HERO (TOP OF HOME PAGE IN THE HEADER) */}
-            <Sections sections={[children.props.sections[0]]} />
-          </HomeHeader>
-        ) : (
-          <Navbar navbar={navbar} />
-        )}
+        <Waypoint
+          onLeave={() => setMakeNavSticky(true)}
+          onEnter={() => setMakeNavSticky(false)}
+        >
+          <div>
+            {/* If home, show the contained Navbar and Hero */}
+            {children.props.metadata.id === 2 ? (
+              <HomeHeader bgImage={children.props.sections[0].picture.url}>
+                <Navbar navbar={navbar} sticky={makeNavSticky} />
+                {/* SHOW ONLY THE HERO (TOP OF HOME PAGE IN THE HEADER) */}
+                <Sections sections={[children.props.sections[0]]} />
+              </HomeHeader>
+            ) : (
+              <Navbar navbar={navbar} />
+            )}
+          </div>
+        </Waypoint>
         <>
           {/* THE HERO SECTION IS ELIMINATED IN THE SECTIONS FILE */}
+
           <div>{children}</div>
         </>
       </div>

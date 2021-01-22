@@ -8,6 +8,25 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 100%;
+}
+
+.Sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.973);
+  box-shadow: 0 2px 2px #cacaca;
+  z-index: 99;
+  height: 100px;
+  animation: moveDown 0.5s ease-in-out;
+}
+
+.Sticky .Logo {
+  height: 90px;
+  margin-top: 0;
 }
 
 .Logo {
@@ -15,3 +34,11 @@
   flex-grow: 1;
 }
 
+@keyframes moveDown {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
