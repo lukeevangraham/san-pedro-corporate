@@ -34,6 +34,12 @@
   flex-grow: 1;
 }
 
+@media (max-width: 767px) {
+  .DesktopOnly {
+    display: none;
+  }
+}
+
 @keyframes moveDown {
   from {
     transform: translateY(-5rem);

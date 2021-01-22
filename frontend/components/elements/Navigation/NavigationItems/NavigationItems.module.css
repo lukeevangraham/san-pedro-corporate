@@ -4,7 +4,10 @@
   list-style: none;
   display: flex;
   flex-flow: row;
-  align-items: center;
+  /* align-items: center; */
+}
+
+.notSideDrawer {
   height: 100%;
 }
 

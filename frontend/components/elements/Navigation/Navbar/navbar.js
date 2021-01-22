@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { MdMenu } from "react-icons/md";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import Logo from "../../Logo/Logo";
+import SideDrawer from "../SideDrawer/SideDrawer";
 import MobileNavMenu from "../../mobile-nav-menu";
 import Button from "../../UI/Button/Button";
 import ButtonLink from "../../button-link";
@@ -21,7 +22,6 @@ import classes from "./navbar.module.css";
 const Navbar = ({ navbar, sticky }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
   let attachedClasses = [classes.innerToolbar, "row"];
-  const router = useRouter()
 
   return (
     <>
@@ -40,7 +40,10 @@ const Navbar = ({ navbar, sticky }) => {
             </Link> */}
           </div>
           {/* List of links on desktop */}
+          <div className={classes.DesktopOnly}>
+
           <NavigationItems links={navbar.links} sticky={sticky} />
+          </div>
           {/* <ul
             className={[classes.DesktopOnly, classes.NavigationItems].join(" ")}
           >
@@ -78,12 +81,17 @@ const Navbar = ({ navbar, sticky }) => {
       </nav>
 
       {/* Mobile navigation menu panel */}
-      {mobileMenuIsShown && (
-        <MobileNavMenu
+      {/* {mobileMenuIsShown && ( */}
+        <SideDrawer
           navbar={navbar}
           closeSelf={() => setMobileMenuIsShown(false)}
+          open={mobileMenuIsShown}
         />
-      )}
+      {/* )} */}
+      {/* <MobileNavMenu
+          navbar={navbar}
+          closeSelf={() => setMobileMenuIsShown(false)}
+        /> */}
     </>
   );
 };

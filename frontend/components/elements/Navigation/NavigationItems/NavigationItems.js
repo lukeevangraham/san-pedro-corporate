@@ -5,7 +5,7 @@ import classes from "./NavigationItems.module.css";
 
 const NavigationItems = (props) => (
   <>
-    <ul className={[classes.DesktopOnly, classes.NavigationItems].join(" ")}>
+    <ul className={props.sideDrawer ? classes.NavigationItems : [classes.NavigationItems, classes.notSideDrawer].join(" ")}>
       {props.links.map((navLink) => (
         <NavigationItem
           key={navLink.id}
