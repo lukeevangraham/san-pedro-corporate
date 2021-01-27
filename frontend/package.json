@@ -5,7 +5,7 @@
     "dev": "next -p 3058",
     "develop": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3058"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",

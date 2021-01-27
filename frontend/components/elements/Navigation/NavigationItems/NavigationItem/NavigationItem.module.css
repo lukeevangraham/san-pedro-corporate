@@ -29,7 +29,7 @@
     text-decoration: none;
     font-size: 90%;
     border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2;
+    transition: border-bottom 0.2s;
   }
 
   .sticky a:link,

@@ -10,9 +10,9 @@ const NotificationBanner = ({ data: { text, type }, closeSelf }) => {
         "text-white px-2 py-2",
         {
           // Apply theme based on notification type
-          "bg-gray-500": type === "info",
-          "bg-orange-600": type === "warning",
-          "bg-red-600": type === "alert",
+          "bg-primary": type === "info",
+          "bg-secondary": type === "warning",
+          "bg-secondary": type === "alert",
         }
       )}
     >
