@@ -1,4 +1,5 @@
 import Markdown from "react-markdown";
+import Button from "../elements/UI/Button/Button"
 import ButtonLink from "../elements/button-link";
 import Image from "../elements/image";
 import { getButtonAppearance } from "utils/button";
@@ -16,8 +17,13 @@ const Hero = ({ data }) => {
         <p className="text-xl mb-6">{data.description}</p>
         {/* Buttons row */}
         <div className="flex flex-row flex-wrap gap-4">
+            {/* <ButtonLink
+              button={button}
+              appearance={getButtonAppearance(button.type, "light")}
+              key={button.id}
+            /> */}
           {data.buttons.map((button) => (
-            <ButtonLink
+            <Button
               button={button}
               appearance={getButtonAppearance(button.type, "light")}
               key={button.id}
@@ -30,10 +36,10 @@ const Hero = ({ data }) => {
         </div>
       </div>
       {/* Right column for the image */}
-      <Image
+      {/* <Image
         media={data.picture}
         className="flex-shrink-0 object-contain w-full md:w-6/12 mt-6 md:mt-0"
-      />
+      /> */}
     </main>
   );
 };

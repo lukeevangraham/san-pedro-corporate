@@ -7,14 +7,18 @@ import CustomLink from "../../custom-link";
 import classes from "./Button.module.css";
 
 const ButtonContent = ({ button, appearance, compact }) => {
+  const btnGhost = classes.btnGhost;
+
   return (
     <div
       className={classNames(
-      // Common classes
+        // Common classes
         classes.btn,
         // Full-size button
         {
+          /* {
           "px-8 py-4": compact === false,
+        }, */
         },
         // Compact button
         //{
@@ -22,10 +26,12 @@ const ButtonContent = ({ button, appearance, compact }) => {
         //},
         // Specific to when the button is fully dark
         {
-          "bg-primary-600 text-white border-primary-600": appearance === "dark",
+          [classes.btnFull]: appearance === "dark",
         },
         // Specific to when the button is dark outlines
-        classes.btnGhost,
+        {
+          [classes.btnGhost]: appearance === "dark-outline",
+        },
         //{
         //  "text-primary-600 border-primary-600": appearance === "dark-outline",
         //},
@@ -45,13 +51,13 @@ const ButtonContent = ({ button, appearance, compact }) => {
 };
 
 const Button = ({ button, appearance, compact = false }) => (
-<CustomLink link={button}>
+  <CustomLink link={button}>
     {/* {console.log("BUTTON", button)}
     {console.log("APPEARANCE", appearance)}
     {console.log("COMPACT", compact)} */}
     <ButtonContent button={button} appearance={appearance} compact={compact} />
-</CustomLink>
-)
+  </CustomLink>
+);
 
 // const ButtonLink = ({ button, appearance, compact = false }) => {
 //     return (
@@ -62,14 +68,14 @@ const Button = ({ button, appearance, compact = false }) => (
 //   };
 
 Button.propTypes = {
-    button: buttonLinkPropTypes,
-    appearance: PropTypes.oneOf([
-      "dark",
-      "white-outline",
-      "white",
-      "dark-outline",
-    ]),
-    compact: PropTypes.bool,
-  };
+  button: buttonLinkPropTypes,
+  appearance: PropTypes.oneOf([
+    "dark",
+    "white-outline",
+    "white",
+    "dark-outline",
+  ]),
+  compact: PropTypes.bool,
+};
 
 export default Button;

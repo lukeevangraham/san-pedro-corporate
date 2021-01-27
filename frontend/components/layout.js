@@ -32,15 +32,17 @@ const Layout = ({ children, global }) => {
         >
           <div>
             {/* If home, show the contained Navbar and Hero */}
-            {children.props.metadata.id === 2 ? (
-              <HomeHeader bgImage={children.props.sections[0].picture.url}>
-                <Navbar navbar={navbar} sticky={makeNavSticky} />
-                {/* SHOW ONLY THE HERO (TOP OF HOME PAGE IN THE HEADER) */}
-                <Sections sections={[children.props.sections[0]]} />
-              </HomeHeader>
-            ) : (
-              <Navbar navbar={navbar} />
-            )}
+            {children.props.metadata ? (
+              children.props.metadata.id === 2 ? (
+                <HomeHeader bgImage={children.props.sections[0].picture.url}>
+                  <Navbar navbar={navbar} sticky={makeNavSticky} />
+                  {/* SHOW ONLY THE HERO (TOP OF HOME PAGE IN THE HEADER) */}
+                  <Sections sections={[children.props.sections[0]]} />
+                </HomeHeader>
+              ) : (
+                <Navbar navbar={navbar} />
+              )
+            ) : null}
           </div>
         </Waypoint>
         <>
