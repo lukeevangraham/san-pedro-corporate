@@ -2,7 +2,7 @@ import { getStrapiMedia } from "utils/media";
 import PropTypes from "prop-types";
 import { mediaPropTypes } from "utils/types";
 
-const Image = ({ media, className }) => {
+const Image = ({ media, className }, props) => {
   const { url, alternativeText } = media;
   const fullUrl = getStrapiMedia(url);
 

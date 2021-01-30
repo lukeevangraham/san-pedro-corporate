@@ -9,5 +9,5 @@ export function getStrapiMedia(url) {
   }
 
   // Otherwise prepend the URL path with the Strapi URL
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://sanpedroadmin.lukegraham.us'}${url}`;
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337'}${url}`;
 }
