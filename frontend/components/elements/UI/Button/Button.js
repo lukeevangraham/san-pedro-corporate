@@ -37,11 +37,11 @@ const ButtonContent = ({ button, appearance, compact }) => {
         //},
         // Specific to when the button is fully white
         {
-          "bg-white text-primary-600 border-white": appearance === "white",
+          [classes.btnWhite]: appearance === "white",
         },
         // Specific to when the button is white outlines
         {
-          "text-white border-white": appearance === "white-outline",
+          [classes.btnGhostWhite]: appearance === "white-outline",
         }
       )}
     >

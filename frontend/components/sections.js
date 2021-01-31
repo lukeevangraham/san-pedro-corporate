@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero/Hero";
 import LargeVideo from "@/components/sections/large-video";
 import FeatureColumnsGroup from "@/components/sections/feature-columns-group";
 import FeatureRowsGroup from "@/components/sections/feature-rows-group";
-import BottomActions from "@/components/sections/bottom-actions";
+import BottomActions from "@/components/sections/BottomActions/BottomActions";
 import TestimonialsGroup from "@/components/sections/testimonials-group";
 import RichText from "./sections/rich-text";
 import Pricing from "./sections/pricing";

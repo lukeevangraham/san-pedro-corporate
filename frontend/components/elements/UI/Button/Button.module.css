@@ -4,7 +4,11 @@
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: all .2s;
+}
+
+.btn:hover, .btn:active {
+    transform: scale(1.05);
 }
 
 .btnFull {
@@ -13,13 +17,12 @@
     border: none;
     color: #fff;
     margin-right: 15px;
-    transition: all .2s;
 }
 
 .btnGhost {
     border: 1px solid #DB3D2C;
     color: #DB3D2C;
-    transition: all .2s;
+    /* transition: all .2s; */
     padding: 9px 29px;
 }
 
@@ -27,14 +30,26 @@
     background-color: #5C1A12;
 } */
 
-.btnFull:hover, .btnFull:active {
-    /* border: 1px solid #5C1A12; */
-    transform: scale(1.05);
-}
+.btnFull:hover, .btnFull:active {}
 
 .btnGhost:hover, .btnGhost:active {
     border: none;
     color: #fff;
-    transform: scale(1.05);
     background-image: linear-gradient(to right bottom, #DB3D2C, #9C2C1F);
+}
+
+.btnGhostWhite {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 9px 29px;
+}
+
+.btnWhite {
+    background-image: linear-gradient(to right bottom, #ffffff, #fdccc6);
+}
+
+.btnGhostWhite:hover, .btnGhost:active {
+    background-image: linear-gradient(to right bottom, #ffffff, #fdccc6);
+    color: rgb(19, 19, 19);
+    border: none;
 }

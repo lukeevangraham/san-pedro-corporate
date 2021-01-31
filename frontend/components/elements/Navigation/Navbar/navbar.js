@@ -18,6 +18,7 @@ import {
 import { getButtonAppearance } from "utils/button";
 import CustomLink from "../../custom-link";
 import classes from "./navbar.module.css";
+import classNames from "classnames";
 
 const Navbar = ({ navbar, sticky }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -29,7 +30,10 @@ const Navbar = ({ navbar, sticky }) => {
       <nav className={sticky ? classes.Sticky : classes.Toolbar}>
         <div className={attachedClasses.join(" ")}>
           <div className={classes.Logo}>
-            <Logo image={navbar.logo} sticky={sticky} />
+            <Logo
+              image={sticky ? navbar.logo : navbar.logoWhite}
+              sticky={sticky}
+            />
             {/* <Link href="/[[...slug]]" as="/">
               <a>
                 <Image
@@ -41,8 +45,7 @@ const Navbar = ({ navbar, sticky }) => {
           </div>
           {/* List of links on desktop */}
           <div className={classes.DesktopOnly}>
-
-          <NavigationItems links={navbar.links} sticky={sticky} />
+            <NavigationItems links={navbar.links} sticky={sticky} />
           </div>
           {/* <ul
             className={[classes.DesktopOnly, classes.NavigationItems].join(" ")}
@@ -60,7 +63,9 @@ const Navbar = ({ navbar, sticky }) => {
             onClick={() => setMobileMenuIsShown(true)}
             className="p-1 block md:hidden"
           >
-            <MdMenu className="h-8 w-auto" />
+            <MdMenu
+              className={classNames("h-8 w-auto", { "text-white": !sticky })}
+            />
           </button>
           {/* CTA button on desktop */}
           {navbar.button && (
@@ -82,11 +87,11 @@ const Navbar = ({ navbar, sticky }) => {
 
       {/* Mobile navigation menu panel */}
       {/* {mobileMenuIsShown && ( */}
-        <SideDrawer
-          navbar={navbar}
-          closeSelf={() => setMobileMenuIsShown(false)}
-          open={mobileMenuIsShown}
-        />
+      <SideDrawer
+        navbar={navbar}
+        closeSelf={() => setMobileMenuIsShown(false)}
+        open={mobileMenuIsShown}
+      />
       {/* )} */}
       {/* <MobileNavMenu
           navbar={navbar}

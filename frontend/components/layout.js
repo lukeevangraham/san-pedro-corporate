@@ -5,7 +5,7 @@ import ButtonLink from "./elements/button-link";
 import HomeHeader from "../components/elements/HomeHeader/HomeHeader";
 import Navbar from "./elements/Navigation/Navbar/navbar";
 import Footer from "./elements/footer";
-import NotificationBanner from "./elements/notification-banner";
+import NotificationBanner from "./elements/NotificationBanner/NotificationBanner";
 import { useState } from "react";
 import Sections from "../components/sections";
 

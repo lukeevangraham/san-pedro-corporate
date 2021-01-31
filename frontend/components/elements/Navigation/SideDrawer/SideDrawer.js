@@ -7,6 +7,7 @@ import {
   buttonLinkPropTypes,
 } from "utils/types";
 import ButtonLink from "../../button-link";
+import Button from "../../UI/Button/Button"
 import { useLockBodyScroll } from "utils/hooks";
 import { getButtonAppearance } from "utils/button";
 import CustomLink from "../../custom-link";
@@ -33,7 +34,7 @@ const MobileNavMenu = ({ navbar, closeSelf, open }) => {
         {/* <div className="flex flex-row justify-between py-2 items-center"> */}
         {/* Company logo */}
         <div className={classes.Logo}>
-          <Image media={navbar.logo} className="h-20 w-auto object-contain" />
+          <Image media={navbar.logo} className="h-16 w-auto object-contain" />
         </div>
         {/* Close button */}
         {/* <button onClick={closeSelf} className="py-1 px-1">
@@ -55,10 +56,15 @@ const MobileNavMenu = ({ navbar, closeSelf, open }) => {
                   </li>
                 ))} */}
         {/* </ul> */}
-        <ButtonLink
+        <div style={{ margin: "1rem" }}></div>
+        <Button
           button={navbar.button}
           appearance={getButtonAppearance(navbar.button.type, "light")}
         />
+        {/* <ButtonLink
+          button={navbar.button}
+          appearance={getButtonAppearance(navbar.button.type, "light")}
+        /> */}
         {/* </div> */}
         {/* </div> */}
         {/* </div> */}
