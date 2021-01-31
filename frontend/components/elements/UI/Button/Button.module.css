@@ -8,26 +8,33 @@
 }
 
 .btnFull {
-    background-color: #90291D;
-    border: 1px solid #90291D;
+    /* background-color: #DB3D2C; */
+    background-image: linear-gradient(to right bottom, #DB3D2C, #9C2C1F);
+    border: none;
     color: #fff;
     margin-right: 15px;
+    transition: all .2s;
 }
 
 .btnGhost {
-    border: 1px solid #90291D;
-    color: #90291D;
+    border: 1px solid #DB3D2C;
+    color: #DB3D2C;
+    transition: all .2s;
+    padding: 9px 29px;
 }
 
-.btn:hover, .btn:active {
+/* .btn:hover, .btn:active {
     background-color: #5C1A12;
-}
+} */
 
 .btnFull:hover, .btnFull:active {
-    border: 1px solid #5C1A12;
+    /* border: 1px solid #5C1A12; */
+    transform: scale(1.05);
 }
 
 .btnGhost:hover, .btnGhost:active {
-    border: 1px solid #5C1A12;
+    border: none;
     color: #fff;
+    transform: scale(1.05);
+    background-image: linear-gradient(to right bottom, #DB3D2C, #9C2C1F);
 }

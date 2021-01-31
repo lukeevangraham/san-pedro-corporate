@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Hero from "@/components/sections/hero";
+import Hero from "@/components/sections/Hero/Hero";
 import LargeVideo from "@/components/sections/large-video";
 import FeatureColumnsGroup from "@/components/sections/feature-columns-group";
 import FeatureRowsGroup from "@/components/sections/feature-rows-group";
