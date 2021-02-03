@@ -7,6 +7,7 @@ import BottomActions from "@/components/sections/BottomActions/BottomActions";
 import TestimonialsGroup from "@/components/sections/testimonials-group";
 import RichText from "./sections/rich-text";
 import Pricing from "./sections/pricing";
+import classNames from "classnames";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -57,7 +58,8 @@ const PreviewModeBanner = () => {
 // Display the list of sections
 const Sections = ({ sections, preview }) => {
   return (
-    <div className="flex flex-col">
+    // Stretch height if on the home page
+    <div className={classNames("flex flex-col", { "h-full justify-center": sections.length <= 1 && sections[0].__component === "sections.hero" })}>
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}

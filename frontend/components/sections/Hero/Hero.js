@@ -8,15 +8,15 @@ import classes from "./Hero.module.css"
 
 const Hero = ({ data }) => {
   return (
-    <main className="container flex flex-col md:flex-row items-center justify-between py-12">
+    <main className="container flex flex-col md:flex-row items-center justify-between py-4 sm:py-12 mb-6">
       {/* Left column for content */}
-      <div className="flex-1 sm:pr-8">
+      <div className="flex-1">
         {/* Hero section label */}
         <p className={classes.label}>{data.label}</p>
         {/* Big title */}
-        <h1 className="title mt-2 sm:mt-0 mb-4 sm:mb-2">{data.title}</h1>
+        <h1 className="title mt-2 sm:mt-0">{data.title}</h1>
         {/* Description paragraph */}
-        <p className="text-xl mb-6 text-white">{data.description}</p>
+        <p className="sm:text-xl mb-4 sm:mb-6 text-white">{data.description}</p>
         {/* Buttons row */}
         <div className="flex flex-row flex-wrap gap-4">
             {/* <ButtonLink
@@ -33,7 +33,7 @@ const Hero = ({ data }) => {
           ))}
         </div>
         {/* Small rich text */}
-        <div className="text-base md:text-sm mt-4 sm:mt-3 rich-text-hero text-white">
+        <div className="md:text-sm mt-4 sm:mt-3 rich-text-hero text-white">
           <Markdown source={data.smallTextWithLink} />
         </div>
       </div>

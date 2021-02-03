@@ -8,6 +8,7 @@ import { getStrapiURL, getGlobalData } from "utils/api";
 import Layout from "@/components/layout";
 import "@/styles/index.css";
 import "@/styles/grid.css";
+import "@/styles/queries.css";
 
 const MyApp = ({ Component, pageProps }) => {
 
