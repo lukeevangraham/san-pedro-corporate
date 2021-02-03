@@ -30,8 +30,10 @@ const Navbar = ({ navbar, sticky }) => {
       <nav className={sticky ? classes.Sticky : classes.Toolbar}>
         <div className={attachedClasses.join(" ")}>
           <div className={classes.Logo}>
+            {/* This used to be the logo image (moved up a line for save) */}
+              {/* image={sticky ? navbar.logo : navbar.logoWhite} */}
             <Logo
-              image={sticky ? navbar.logo : navbar.logoWhite}
+              image={navbar.logoWhite}
               sticky={sticky}
             />
             {/* <Link href="/[[...slug]]" as="/">
@@ -64,7 +66,7 @@ const Navbar = ({ navbar, sticky }) => {
             className="p-1 block md:hidden"
           >
             <MdMenu
-              className={classNames("h-8 w-auto", { "text-white": !sticky })}
+              className={"h-8 w-auto text-white"}
             />
           </button>
           {/* CTA button on desktop */}
