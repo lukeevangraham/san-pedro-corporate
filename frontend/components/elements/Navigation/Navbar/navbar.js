@@ -20,22 +20,27 @@ import CustomLink from "../../custom-link";
 import classes from "./navbar.module.css";
 import classNames from "classnames";
 
-const Navbar = ({ navbar, sticky }) => {
+const Navbar = ({ navbar, sticky, homePath }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
   let attachedClasses = [classes.innerToolbar, "row"];
 
   return (
     <>
       {/* The actual navbar */}
-      <nav className={sticky ? classes.Sticky : classes.Toolbar}>
+      <nav
+        className={
+          sticky
+            ? classes.Sticky
+            : homePath
+            ? classes.Toolbar
+            : [classes.Toolbar, classes.notHome].join(" ")
+        }
+      >
         <div className={attachedClasses.join(" ")}>
           <div className={classes.Logo}>
             {/* This used to be the logo image (moved up a line for save) */}
-              {/* image={sticky ? navbar.logo : navbar.logoWhite} */}
-            <Logo
-              image={navbar.logoWhite}
-              sticky={sticky}
-            />
+            {/* image={sticky ? navbar.logo : navbar.logoWhite} */}
+            <Logo image={navbar.logoWhite} sticky={sticky} />
             {/* <Link href="/[[...slug]]" as="/">
               <a>
                 <Image
@@ -65,9 +70,7 @@ const Navbar = ({ navbar, sticky }) => {
             onClick={() => setMobileMenuIsShown(true)}
             className="p-1 block md:hidden"
           >
-            <MdMenu
-              className={"h-8 w-auto text-white"}
-            />
+            <MdMenu className={"h-8 w-auto text-white"} />
           </button>
           {/* CTA button on desktop */}
           {navbar.button && (
