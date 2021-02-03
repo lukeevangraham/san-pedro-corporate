@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   height: 70vh;
+  width: 100%;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
