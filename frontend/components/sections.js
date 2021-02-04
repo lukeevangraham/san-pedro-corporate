@@ -22,7 +22,7 @@ const sectionComponents = {
 };
 
 // Display a section individually
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, isHome }) => {
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__component];
 
@@ -31,7 +31,7 @@ const Section = ({ sectionData }) => {
   }
 
   // Display the section
-  return <SectionComponent data={sectionData} />;
+  return <SectionComponent data={sectionData} isHome={isHome} />;
 };
 
 const PreviewModeBanner = () => {
@@ -56,30 +56,38 @@ const PreviewModeBanner = () => {
 };
 
 // Display the list of sections
-const Sections = ({ sections, preview }) => {
+const Sections = ({ sections, preview, isHome, calledFromLayout }) => {
   return (
     // Stretch height if on the home page
-    <div className={classNames("flex flex-col", { "h-full justify-center": sections.length <= 1 && sections[0].__component === "sections.hero" })}>
+    <div
+      className={classNames("flex flex-col", {
+        "h-full justify-center":
+          sections.length <= 1 && sections[0].__component === "sections.hero",
+      })}
+    >
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
       {/* DONT SHOW THE HERO SECTION IF IT'S FIRST (SINCE THE LAYOUT RENDERS IT ALREADY ) */}
-      {sections.length > 1 && sections[0].__component === "sections.hero"
+      {/* {sections.length > 1 && sections[0].__component === "sections.hero" */}
+      {calledFromLayout
         ? sections
-            .filter((section, index) => index !== 0)
+            .filter((section, index) => index === 0)
             .map((section) => (
               <Section
+                isHome={true}
                 sectionData={section}
                 key={`${section.__component}${section.id}`}
               />
             ))
         : sections.map((section) => (
             <Section
+              isHome={isHome}
               sectionData={section}
               key={`${section.__component}${section.id}`}
             />
           ))}
-          {/* THE ORIGINAL CODE IS BELOW */}
+      {/* THE ORIGINAL CODE IS BELOW */}
       {/* {sections.map((section) => (
         <Section
           sectionData={section}

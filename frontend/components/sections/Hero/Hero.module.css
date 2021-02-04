@@ -1,6 +1,9 @@
 .label {
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: .025em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.lightText {
+  color: rgb(236, 236, 236);
 }

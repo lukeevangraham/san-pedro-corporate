@@ -18,7 +18,6 @@ import {
 import { getButtonAppearance } from "utils/button";
 import CustomLink from "../../custom-link";
 import classes from "./navbar.module.css";
-import classNames from "classnames";
 
 const Navbar = ({ navbar, sticky, homePath }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);

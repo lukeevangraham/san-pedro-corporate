@@ -2,21 +2,22 @@ import Markdown from "react-markdown";
 import Button from "../../elements/UI/Button/Button"
 import ButtonLink from "../../elements/button-link";
 import Image from "../../elements/image";
+import classNames from "classnames";
 import { getButtonAppearance } from "utils/button";
 
 import classes from "./Hero.module.css"
 
-const Hero = ({ data }) => {
+const Hero = ({ data, isHome }) => {
   return (
-    <main className="container flex flex-col md:flex-row items-center justify-between py-4 sm:py-12 mb-6">
+    <main className={classNames("container flex flex-col md:flex-row items-center justify-between py-4 sm:py-12", { "mb-6" : isHome })}>
       {/* Left column for content */}
       <div className="flex-1">
         {/* Hero section label */}
-        <p className={classes.label}>{data.label}</p>
+        <p className={classNames(classes.label, { [classes.lightText] : isHome })}>{data.label}</p>
         {/* Big title */}
-        <h1 className="title mt-2 sm:mt-0">{data.title}</h1>
+        <h1 className={classNames("title mt-2 sm:mt-0", { [classes.lightText] : isHome } )}>{data.title}</h1>
         {/* Description paragraph */}
-        <p className="sm:text-xl mb-4 sm:mb-6 text-white">{data.description}</p>
+        <p className={classNames("sm:text-xl mb-4 sm:mb-6", { [classes.lightText] : isHome })}>{data.description}</p>
         {/* Buttons row */}
         <div className="flex flex-row flex-wrap gap-4">
             {/* <ButtonLink
@@ -33,7 +34,7 @@ const Hero = ({ data }) => {
           ))}
         </div>
         {/* Small rich text */}
-        <div className="md:text-sm mt-4 sm:mt-3 rich-text-hero text-white">
+        <div className={classNames("md:text-sm mt-4 sm:mt-3 rich-text-hero", { [classes.lightText] : isHome })}>
           <Markdown source={data.smallTextWithLink} />
         </div>
       </div>

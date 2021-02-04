@@ -25,7 +25,18 @@ const DynamicPage = ({ sections, metadata, preview }) => {
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadata} />
       {/* Display content sections */}
-      <Sections sections={sections} preview={preview} />
+      {/* DON'T DISPLAY HERO IF ON HOME PAGE, SINCE IT'S CALLED BY THE LAYOUT */}
+      <Sections
+        sections={
+          metadata.id === 2
+            ? sections.filter(
+                (section) => section.__component !== "sections.hero"
+              )
+            : sections
+        }
+        preview={preview}
+        isHome={metadata.id === 2}
+      />
     </>
   );
 };

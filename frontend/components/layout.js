@@ -37,7 +37,7 @@ const Layout = ({ children, global }) => {
                 <HomeHeader bgImage={children.props.sections[0].picture.url}>
                   <Navbar navbar={navbar} sticky={makeNavSticky} homePath={true} />
                   {/* SHOW ONLY THE HERO (TOP OF HOME PAGE IN THE HEADER) */}
-                  <Sections sections={[children.props.sections[0]]} />
+                  <Sections sections={[children.props.sections[0]]} calledFromLayout={true} />
                 </HomeHeader>
               ) : (
                 <Navbar navbar={navbar} sticky={makeNavSticky} homePath={false} />
