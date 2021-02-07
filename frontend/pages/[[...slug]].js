@@ -1,5 +1,5 @@
 import ErrorPage from "next/error";
-import { getStrapiURL, getPageData } from "utils/api";
+import { getStrapiURL, getPageData, getNewsData } from "utils/api";
 import Sections from "@/components/sections";
 import Seo from "@/components/elements/seo";
 import { useRouter } from "next/dist/client/router";
@@ -44,13 +44,28 @@ const DynamicPage = ({ sections, metadata, preview }) => {
 export async function getStaticPaths() {
   // Get all pages from Strapi
   const pages = await (await fetch(getStrapiURL("/pages"))).json();
+  // const news = await (await fetch(getStrapiURL("/news"))).json();
   const paths = pages.map((page) => {
+    // console.log("og slug: ", page.slug);
     // Decompose the slug that was saved in Strapi
     const slugArray = page.slug.split("__");
     return {
       params: { slug: slugArray },
     };
   });
+  // const newsPaths = news.map((article) => {
+  //   // Decompose the slug that was saved in Strapi
+  //   const slugArray = ["/news/" + article.slug.split("__")];
+  //   // console.log("slugArray: ", slugArray);
+  //   return {
+  //     params: { slug: slugArray },
+  //   };
+  // });
+  // const paths = paths.concat(newsPaths);
+  // console.log("Paths: ", JSON.stringify(paths, null, 2))
+  // console.log("paths: ", JSON.stringify(paths, null, 2))
+  // console.log("paths: ", { paths, fallback: true });
+  // console.log("return: ", { paths, fallback: true })
   return { paths, fallback: true };
 }
 
