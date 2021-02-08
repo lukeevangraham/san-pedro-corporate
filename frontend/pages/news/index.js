@@ -1,5 +1,6 @@
 // import React from "react";
 import { getSortedNewsData } from "../../utils/api";
+import Link from "next/link"
 
 export async function getStaticProps() {
   const allNewsData = await getSortedNewsData();
@@ -18,7 +19,7 @@ export async function getStaticProps() {
 const News = ({allNewsData}) => (
   <div>Here are the news pages:
     {allNewsData.map((article) => (
-      <div key={article.id}>{article.title}</div>
+      <div key={article.id}> <Link href={`/news/${article.slug}`}><a>{article.title}</a></Link></div>
     ))}
   </div>
 );

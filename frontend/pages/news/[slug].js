@@ -15,6 +15,10 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       newsData,
+      metadata: {
+        metaTitle: "San Pedro Presbyterian Church News",
+        metaDescription: "Get the latest information on San Pedro Presbyterian Church in San Antonio, Texas."
+      }
     },
   };
 }

@@ -44,7 +44,7 @@ const DynamicPage = ({ sections, metadata, preview }) => {
 export async function getStaticPaths() {
   // Get all pages from Strapi
   const pages = await (await fetch(getStrapiURL("/pages"))).json();
-  // const news = await (await fetch(getStrapiURL("/news"))).json();
+  const news = await (await fetch(getStrapiURL("/news"))).json();
   const paths = pages.map((page) => {
     // console.log("og slug: ", page.slug);
     // Decompose the slug that was saved in Strapi
@@ -53,28 +53,19 @@ export async function getStaticPaths() {
       params: { slug: slugArray },
     };
   });
-  // const newsPaths = news.map((article) => {
-  //   // Decompose the slug that was saved in Strapi
-  //   const slugArray = ["/news/" + article.slug.split("__")];
-  //   // console.log("slugArray: ", slugArray);
-  //   return {
-  //     params: { slug: slugArray },
-  //   };
-  // });
-  // const paths = paths.concat(newsPaths);
-  // console.log("Paths: ", JSON.stringify(paths, null, 2))
-  // console.log("paths: ", JSON.stringify(paths, null, 2))
-  // console.log("paths: ", { paths, fallback: true });
-  // console.log("return: ", { paths, fallback: true })
+
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params, preview = null }) {
+  console.log("rendering a page!")
   // Find the page data for the current slug
   let chainedSlugs;
   if (params == {} || !params.slug) {
     // To get the homepage, find the only page where slug is an empty string
     chainedSlugs = ``;
+  } else if (params == "news") {
+    console.log("we have a news page!")
   } else {
     // Otherwise find a page with a matching slug
     // Recompose the slug that was saved in Strapi
