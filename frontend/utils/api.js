@@ -28,28 +28,13 @@ export async function getPageData(slug, preview = false) {
 }
 
 export async function getSortedNewsData() {
-  const newsData = await fetchAPI(`/news`)
+  const newsData = await fetchAPI(`/news`);
 
-  // const allNewsData = newsData.map((articleData) => {
-  //   return {
-  //     // slug: articleData.slug,
-  //     ...articleData
-  //   }
-  // })
-
-  const plainData = {
-    ...newsData
+  if (newsData == null || newsData.length === 0) {
+    return null;
   }
 
-  console.log("data: ", plainData)
-
-  return plainData
-
-  // if (newsData == null || newsData.length === 0) {
-  //   return null;
-  // }
-
-  // return newsData
+  return newsData;
 }
 
 export async function getAllNewsSlugs() {
