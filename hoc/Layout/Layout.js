@@ -35,7 +35,7 @@ const Layout = (props) => {
       rgba(0, 0, 0, 0.33),
       rgba(255, 255, 255, 0.33)
     ),
-    url(https://sanpedroadmin.lukegraham.us${props.heroBg});`,
+    url(https://sanpedroadmin.lukegraham.us${props.heroBg})`,
           }}
         >
           <Toolbar
