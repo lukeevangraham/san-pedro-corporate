@@ -19,6 +19,8 @@ const Layout = (props) => {
     setShowSideDrawer(!showSideDrawer);
   };
 
+  console.log("props: ", props)
+
   return (
     <Aux>
       <Waypoint
@@ -26,12 +28,20 @@ const Layout = (props) => {
         onLeave={() => setMakeNavSticky(true)}
         onEnter={() => setMakeNavSticky(false)}
       >
-        <div className={classes.homeHeader}>
-
-        <Toolbar
-          sticky={makeNavSticky}
-          drawerToggleClicked={sideDrawerToggleHandler}
-        />
+        <div
+          className={classes.homeHeader}
+          style={{
+            backgroundImage: `linear-gradient(
+      rgba(0, 0, 0, 0.33),
+      rgba(255, 255, 255, 0.33)
+    ),
+    url(https://sanpedroadmin.lukegraham.us${props.heroBg});`,
+          }}
+        >
+          <Toolbar
+            sticky={makeNavSticky}
+            drawerToggleClicked={sideDrawerToggleHandler}
+          />
         </div>
       </Waypoint>
       <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />

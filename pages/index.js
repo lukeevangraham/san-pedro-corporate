@@ -3,12 +3,24 @@ import { DefaultSeo } from "next-seo";
 import Layout from "../hoc/Layout/Layout";
 import HomePage from "../components/HomePage/HomePage";
 import { getStrapiMedia } from "../lib/media";
+import { fetchAPI } from "../lib/api";
 
 // import styles from '../styles/Home.module.css'
 
+export async function getStaticProps() {
+  const homeData = await fetchAPI("/pages");
+  return {
+    props: {
+      homeData,
+    },
+  };
+}
+
 export default function Home(props) {
   const { metadata } = props.global;
-  console.log("PROPS: ", metadata);
+
+  console.log("PROPS: ", props)
+
   return (
     <div>
       <Head>
@@ -33,7 +45,7 @@ export default function Home(props) {
         }}
       />
 
-      <Layout home global={props.global}>
+      <Layout home global={props.global} heroBg={props.homeData[0].contentSections[0].picture.url}>
         <HomePage />
       </Layout>
 
